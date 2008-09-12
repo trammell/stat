@@ -1,4 +1,3 @@
-# $Id$
 
     GCC = /usr/bin/gcc
 
@@ -8,7 +7,7 @@ help:
 clean:
 	rm -f *.o
 
-empty: clean
+empty realclean: clean
 	rm -f *.dll *.so *.a
 
 so libguile-erf.so: src/erf.c
@@ -23,12 +22,9 @@ dll: erf.o
 	-Wl,--no-whole-archive -lm -lguile
 
 erf.o: src/erf.c
-	$(GCC) -c src/erf.c
+	$(GCC) -c -Wall src/erf.c
 
 install: libguile-erf.so cygguile-erf.dll
 	cp -a libguile-erf.so /usr/local/lib
 	cp -a cygguile-erf.dll /usr/local/lib
-
-g:
-	guile
 
