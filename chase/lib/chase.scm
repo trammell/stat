@@ -20,6 +20,14 @@
   (lambda (lst)
     (/ (apply + lst) (length lst))))
 
+(define variance
+  (lambda (lst)
+    (/ (+ (apply + lst) (apply + (map (lambda (x) (* x x)) lst))) (length lst))))
+
+(define stddev
+  (lambda (lst)
+    (sqrt (variance lst))))
+
 ; (define median
 ;   (lambda (vec) (    )))
 
