@@ -1,8 +1,10 @@
-;;; vim: set filetype=lisp :
+; vim: set filetype=lisp :
 
 (load-from-path "bev/permute.scm")
+(use-modules (tap writer))
+(plan 3)
 
-(if (not (= 1 (permute 0 0))) (error "assert 0 0 failed"))
-(if (not (= 120 (permute 5 5))) (error "assert failed"))
-(if (not (= 11880 (permute 12 4))) (error "assert failed"))
+(is (permute 0 0) 1)
+(is (permute 5 5) 120)
+(is (permute 12 4) 11880)
 
