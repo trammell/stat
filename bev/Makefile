@@ -1,9 +1,11 @@
+
+   SCHEME ?= guile
+
 usage:
 	@echo "usage: make [clean|install]"
 
 test:
-	$(SCHEME) bin/test.scm t/
-
+	prove -e $(SCHEME) t/
 
 
 
