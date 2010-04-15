@@ -5,7 +5,7 @@ usage:
 	@echo "usage: make [clean|install]"
 
 test:
-	prove -e $(SCHEME) t/
+	prove -e "$(SCHEME) -L lib" t/
 
 
 
